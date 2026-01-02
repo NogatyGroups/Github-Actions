@@ -13,8 +13,8 @@ on:
         tags:
             - v1
             - v2.*
-        tags-ignore:
-            - v3
+        #tags-ignore: You can may use only: tags, tags-ignore
+        #    - v3
         paths:
             - "**.js"
             - "!app.js"
