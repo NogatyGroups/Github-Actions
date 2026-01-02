@@ -1,4 +1,4 @@
-name: Test vars context
+name: Test vars in context level 
 on:
   workflow_dispatch:
 env:
