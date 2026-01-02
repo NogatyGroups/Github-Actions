@@ -1,0 +1,15 @@
+name: Workflow Run
+run-name: ${{github.actor}} 
+on:
+    workflow_run:
+        workflows: [Pull request comment]
+        types: [completed]
+
+jobs:
+    Display-string:
+        runs-on: ubuntu-latest
+        steps: 
+            - run: |
+                echo "I was triggered because 'Pull request comment' was completed"
+                echo $GITHUB_SHA
+                echo $GITHUB_REF
