@@ -8,8 +8,8 @@ on:
             - "features/**" # matches feature/featA, feature/featB, feature/featA/ , feature/featB/
             - "releases/**"
             - "!features/featA" # Except features/featA
-        branches-ignore:
-            - develop
+        #branches-ignore: # You can may use only: branches, branches-ignore
+        #    - develop
         tags:
             - v1
             - v2.*
