@@ -10,14 +10,14 @@ on:
             - "!features/featA" # Except features/featA
         #branches-ignore: # You can may use only: branches, branches-ignore
         #    - develop
-        tags:
-            - v1
-            - v2.*
-        # tags-ignore: You can may use only: tags, tags-ignore
-        #    - v3
-        paths:
-            - "**.js"
-            - "!app.js"
+        #tags:
+        #    - v1
+        #    - v2.*
+        ## tags-ignore: You can may use only: tags, tags-ignore
+        ##    - v3
+        #paths:
+        #    - "**.js"
+        #    - "!app.js"
 
 jobs:
     Check-branches-filtering:
