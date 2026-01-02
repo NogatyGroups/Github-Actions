@@ -1,4 +1,4 @@
-name: Repository Events
+name: Repository Events v2
 run-name: ${{github.actor}} 
 on: 
     push:
