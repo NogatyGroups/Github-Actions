@@ -17,5 +17,5 @@ jobs:
                         owner: context.repo.owner,
                         repo: context.repo.repo,
                         issue_number: context.issue.number,
-                        body: 'Thanks for contributing! @Nogaty Entreprise' ,
+                        body: 'Thanks for contributing! @Nogaty Entreprise. GoodBye' ,
                     });
