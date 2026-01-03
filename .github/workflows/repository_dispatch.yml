@@ -1,0 +1,19 @@
+name: External Event using Repository Dispatch 
+run-name: ${{github.actor}}
+on: 
+    repository_dispatch:
+        types: [build]
+jobs:
+    trigger_wf_using_repository_dispatch_job:
+        runs-on: ubuntu-laste
+        steps:
+            - name: "Rpository dispatch"
+              run: |
+                echo "Repository Dispatch"
+    run_if_failure_job:
+        if: ${{ !github.event.client_payload.passed }}
+        runs-on: ubuntu-latest
+        steps:
+          - env:
+              MESSAGE: ${{ github.event.client_payload.message }}
+            run: echo $MESSAGE
