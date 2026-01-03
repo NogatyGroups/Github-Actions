@@ -1,0 +1,11 @@
+name: External Event using Repository Dispatch 
+run-name: ${{github.actor}}
+on: 
+    repository_dispatch:
+jobs:
+    trigger_wf_using_repository_dispatch:
+        runs-on: ubuntu-laste
+        steps:
+            - name: "Rpository dispatch"
+              run: |
+                echo "Repository Dispatch"
