@@ -1,0 +1,16 @@
+name: Manually Trigger workflow
+run-name: ${{github.actor}}
+
+on:
+    workflow_dispatch:
+jobs:
+    manually_trigger:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display string
+              run: echo "This is manually trigger"
+            - name: Display last commit and default branch
+              run: |
+                echo $GITHUB_SHA
+                echo $GITHUB_REF
+                echo $GITHUB_TOKEN
