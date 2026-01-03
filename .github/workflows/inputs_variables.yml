@@ -1,4 +1,4 @@
-name: Manually Trigger workflow
+name: Input variable with Manually Trigger workflow
 run-name: ${{github.actor}}
 
 on:
