@@ -16,4 +16,8 @@ jobs:
         steps:
           - env:
               MESSAGE: ${{ github.event.client_payload.message }}
-            run: echo $MESSAGE
+              ENV: ${{ github.event.client_payload.env }}
+            run: |
+                echo "Env: ${{ENV}}"
+                echo "MESSAGE: ${{MESSAGE}}"
+                
