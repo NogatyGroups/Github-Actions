@@ -1,0 +1,52 @@
+name: Manually Trigger workflow
+run-name: ${{github.actor}}
+
+on:
+    workflow_dispatch:
+        inputs:
+            string_value:
+                description: "A string input value"
+                type: string
+                required: true
+                default: "Nogaty Groups"
+            number_value:
+                description: A number input
+                type: number 
+                default: 32
+            choice_options:
+                description: "A choice options Input"
+                required: true 
+                default: "Option 3"
+                type: choice 
+                options:
+                    - Option 1
+                    - Option 2
+                    - Option 3
+            boolean_value:
+                description: A boolean option
+                required: false 
+                type: boolean 
+            environment_value:
+                description: "Evironment"
+                type: environment
+                required: true
+jobs:
+    manually_trigger:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display string
+              run: echo "This is manually trigger"
+            - name: Display last commit and default branch
+              run: |
+                echo $GITHUB_SHA
+                echo $GITHUB_REF
+                echo $GITHUB_TOKEN
+            - name: Display input variable
+              run: |
+                echo "string_value: ${{ inputs.string_value}}"
+                echo "number_value: ${{ inputs.number_value}}"
+                echo "choice_options: ${{ inputs.choice_options}}"
+                echo "boolean_value: ${{inputs.boolean_value}}"
+                echo "environment_value: ${{inputs.environment_value}}"
+
+
