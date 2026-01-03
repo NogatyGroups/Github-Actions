@@ -1,0 +1,19 @@
+name: Stale Scheduled
+run-name: ${{github.actor}}
+on: 
+    schedule:
+        - cron: "0/2 * * * *"
+        - cron: "0 14 * * *"
+    #push:
+    #    branches:
+    #        - main
+    #        - features/feature01
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/stale@v8
+              with:
+                stale-issue-message: "This is some message"
+                days-before-stale: 1
+                days-before-close: 5
