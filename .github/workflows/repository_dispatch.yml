@@ -5,7 +5,7 @@ on:
         types: [build]
 jobs:
     trigger_wf_using_repository_dispatch_job:
-        runs-on: ubuntu-laste
+        runs-on: ubuntu-latest
         steps:
             - name: "Rpository dispatch"
               run: |
