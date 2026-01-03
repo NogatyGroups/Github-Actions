@@ -1,0 +1,23 @@
+name: Manually Trigger workflow
+run-name: ${{github.actor}}
+
+on:
+    workflow_dispatch:
+        inputs:
+            string_value:
+                description: "A string input value"
+                type: string
+                required: true
+                default: "Nogaty Groups"
+jobs:
+    manually_trigger:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display string
+              run: echo "This is manually trigger"
+            - name: Display last commit and default branch
+              run: |
+                echo $GITHUB_SHA
+                echo $GITHUB_REF
+                echo $GITHUB_TOKEN
+                echo $string_value

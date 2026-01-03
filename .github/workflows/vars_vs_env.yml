@@ -4,6 +4,7 @@ on:
 env:
   # Setting an environment variable with the value of a configuration variable
   env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  GITHUB_CONTEXT: ${{ toJson(github) }}
 jobs:
   display-variables:
     name: ${{ vars.JOB_NAME }}
@@ -12,6 +13,8 @@ jobs:
     runs-on: ${{ vars.RUNNER }}
     environment: ${{ vars.ENVIRONMENT_STAGE }}
     steps:
+    - name: "$GITHUB_CONTEXT"
+      run: echo "$GITHUB_CONTEXT"
     - name: Use variables
       run: |
         echo "repository variable : $REPOSITORY_VAR"
