@@ -12,7 +12,7 @@ jobs:
             - name: Run only if issues has bug label
               if: contains(github.event.issue.labels.*.name, 'bug')
               run: |
-                echo ${{join(github.event.issue.labels.*.name) }}
+                echo ${{join(github.event.issue.labels.*.name, ',') }}
 
     uses-if-key-statement:
         runs-on: ubuntu-latest
