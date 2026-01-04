@@ -5,6 +5,7 @@ on:
 jobs:
     env-vars-and-context:
         runs-on: ubuntu-latest
+        if: github.ref == 'github.refs/heads/features/feature01'
         steps:
             - name: Log ENV VAR
               id: log_env_vars
@@ -25,5 +26,6 @@ jobs:
               run: |
                 echo "MESSAGE: ${{env.MESSAGE}}"
                 echo "EMAIL: ${{env.EMAIL}}"
+        
 
 
