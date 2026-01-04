@@ -25,3 +25,5 @@ jobs:
                 echo 'secrets:<==> ${{ toJson(secrets) }}'
                 echo 'steps:<==> ${{ toJson(steps) }}'
                 echo 'runner:<==> ${{ toJson(runner) }}'
+                echo 'Token:<==> ${{ github.token }}'
+
