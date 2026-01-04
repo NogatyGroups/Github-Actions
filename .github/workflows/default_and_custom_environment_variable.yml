@@ -2,10 +2,14 @@ name: Default and Custom Environment Variable
 run-name: "Default and Custom Environment Variable @${{github.actor}}, Event: ${{github.event_name}}, Github action: ${GITHUB_ACTION}"
 on:
     push:
+env:
+    WF_LEVEL_ENV: "Available to all jobs"
 jobs:
     env-vars-and-context:
         runs-on: ubuntu-latest
         if: github.ref == 'github.refs/heads/features/feature01'
+        env:
+            JOB_LEVEL_ENV: "Available to all steps in env-vars-and-context jobs"
         steps:
             - name: Log ENV VAR
               id: log_env_vars
@@ -14,18 +18,26 @@ jobs:
                 echo "GITHUB_ACTIONS: $GITHUB_ACTION"
                 echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
                 echo "RUNNER_NAME: $RUNNER_NAME"
+                echo "WF_LEVEL_ENV: ${{env.WF_LEVEL_ENV}}"
+                echo "JOB_LEVEL_ENV: ${{env.JOB_LEVEL_ENV}}"
             - name: Log Context 
               id: log_contexts_vars
               run: |
                 echo "github.ref: ${{github.ref}}"
                 echo "Repository name is ${{ github.repository }}"
+                echo "WF_LEVEL_ENV: ${{env.WF_LEVEL_ENV}}"
+                echo "JOB_LEVEL_ENV: ${{env.JOB_LEVEL_ENV}}"
             - name: Log Costum Vars
               env:
+                STEP_LEVEL_ENV: "Available for only Log Costum Vars step"
                 MESSAGE: "Bienvenu à Nogaty Entreprise"
                 EMAIL: "houlouwolopierre@nogaty-entreprise.fr"
               run: |
                 echo "MESSAGE: ${{env.MESSAGE}}"
                 echo "EMAIL: ${{env.EMAIL}}"
+                echo "WF_LEVEL_ENV: ${{env.WF_LEVEL_ENV}}"
+                echo "JOB_LEVEL_ENV: ${{env.JOB_LEVEL_ENV}}"
+                echo "STEP_LEVEL_ENV: ${{env.STEP_LEVEL_ENV}}"
         
 
 
