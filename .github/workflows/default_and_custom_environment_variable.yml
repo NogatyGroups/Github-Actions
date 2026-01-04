@@ -1,5 +1,5 @@
 name: Default and Custom Environment Variable
-run-name: "Default and Custom Environment Variable @${{github.actor}}, Event: ${{github.event_name}}, Github action: $GITHUB_ACTION"
+run-name: "Default and Custom Environment Variable @${{github.actor}}, Event: ${{github.event_name}}, Github action: ${GITHUB_ACTION}"
 on:
     push:
 jobs:
@@ -7,10 +7,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Log ENV VAR
+              id: log_env_vars
               run: |
                 echo "GITHUB_REF: $GITHUB_REF"
-                echo "GITHUB_ACTION: $GITHUB_ACTION"
+                echo "GITHUB_ACTIONS: $GITHUB_ACTION"
             - name: Log Context 
+              id: log_contexts_vars
               run: |
                 echo "github.ref: ${{github.ref}}"
                 echo "Repository name is ${{ github.repository }}"
