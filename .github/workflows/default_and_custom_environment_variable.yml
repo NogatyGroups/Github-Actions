@@ -7,7 +7,7 @@ env:
 jobs:
     env-vars-and-context:
         runs-on: ubuntu-latest
-        if: github.ref == 'github.refs/heads/features/feature01'
+        if: github.ref == 'refs/heads/features/feature01'
         env:
             JOB_LEVEL_ENV: "Available to all steps in env-vars-and-context jobs"
         steps:
