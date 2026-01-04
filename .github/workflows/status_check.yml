@@ -7,7 +7,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Step1
-              run: sleep 60
+              run: sleep 30
+            - name: Allow Fail
+              run: exit 1
             - name: Runs on Failure
               if: failure()
               run: echo "Runs only if failure"
