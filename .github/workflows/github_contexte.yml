@@ -1,5 +1,5 @@
 name: Github Expression & Contexts 
-run-name: ${{github.actor}}
+run-name: "Expressions & contexts by @${{github.actor}} , event: ${{github.event_name}}"
 on: [push, pull_request, issues, workflow_dispatch]
 
 jobs:
