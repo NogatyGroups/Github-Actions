@@ -11,10 +11,19 @@ jobs:
               run: |
                 echo "GITHUB_REF: $GITHUB_REF"
                 echo "GITHUB_ACTIONS: $GITHUB_ACTION"
+                echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
+                echo "RUNNER_NAME: $RUNNER_NAME"
             - name: Log Context 
               id: log_contexts_vars
               run: |
                 echo "github.ref: ${{github.ref}}"
                 echo "Repository name is ${{ github.repository }}"
+            - name: Log Costum Vars
+              env:
+                MESSAGE: "Bienvenu à Nogaty Entreprise"
+                EMAIL: "houlouwolopierre@nogaty-entreprise.fr"
+              run: |
+                echo "MESSAGE: ${{env.MESSAGE}}"
+                echo "EMAIL: ${{env.EMAIL}}"
 
 
