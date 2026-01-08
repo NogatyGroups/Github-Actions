@@ -23,7 +23,8 @@ jobs:
         with:
           script: |
             const osArray = context.payload.inputs.os.split(',');
-            return { OS: osArray };
+            const nodeVersionArray = context.payload.inputs.node-version.split(',');
+            return { os: osArray, node-version: nodeVersionArray };
           result-encoding: json
       - name: Echo script ID 
         run: |
