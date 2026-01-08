@@ -22,8 +22,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const osArray = context.payload.inputs.os.split(',');
-            const nodeVersionArray = context.payload.inputs.node-version.split(',');
+            const osArray = context.payload.inputs['os'].split(',');
+            const nodeVersionArray = context.payload.inputs['node-version'].split(',');
             return { os: osArray, node-version: nodeVersionArray };
           result-encoding: json
       - name: Echo script ID 
