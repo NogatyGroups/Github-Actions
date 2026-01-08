@@ -5,10 +5,11 @@ on:
 
 jobs:
     node-matrix:
-        runs-on: ubuntu-latest
         strategy:
             matrix:
+                os: [ubuntu-latest, windows-latest,macos-latest]
                 node-version: [18,19,20,21,22,23,24]
+        runs-on: ${{matrix.os}}
         steps:
          - run: node -v 
          - uses: actions/setup-node@v3 
