@@ -11,10 +11,10 @@ jobs:
     steps:
       - run: echo "Build"
       - run: sleep 30
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          python-version: '3.13' 
 
   test:
     runs-on: ubuntu-24.04
@@ -22,10 +22,10 @@ jobs:
     steps:
       - run: echo "Test"
       - run: sleep 30
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          python-version: '3.13' 
 
   deploy:
     runs-on: ubuntu-24.04
@@ -33,7 +33,7 @@ jobs:
     steps:
       - run: echo "Deploy"
       - run: sleep 30
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          python-version: '3.13' 
