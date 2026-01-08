@@ -1,0 +1,36 @@
+name: Include Or Exclude Matrix
+run-name: "Include Or Exclude Matrix @${{github.actor}} , Event ${{github.event_name}}"
+on:
+    push:
+
+jobs:
+    node-matrix:
+        continue-on-error: false
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest,macos-latest]
+                node-version: [22,23,24]
+                includes:
+                    - os: ubuntu-latest
+                      is-ubuntu: true
+                      node-version: 24
+                    #- os: windows-latest
+                    #  is-windows: true
+                    #  node-version: 23
+                    - experimental: false
+                excludes:
+                    - os: macos-latest
+                      is-macos: true
+                      node-version: 22
+            # max-parallel: 4
+            fail-fast: true
+        runs-on: ${{matrix.os}}
+        steps:
+         - run: node -v 
+         - uses: actions/setup-node@v3 
+           with:
+            node-version: ${{ matrix.node-version}}
+         - run: node -v 
+         - name: test error handling
+           run: dhdhhdhd
+
