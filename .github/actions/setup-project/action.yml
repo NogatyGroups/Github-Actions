@@ -1,5 +1,5 @@
 name: 'Setup Nogaty Advanced Project'
-description: 'Configure l''environnement du projet Nogaty Advanced'
+description: 'Configure lenvironnement du projet Nogaty Advanced'
 inputs:
   node-version:
     description: "The version of Node.js to install"
