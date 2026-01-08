@@ -4,6 +4,9 @@ inputs:
   node-version:
     description: "The version of Node.js to install"
     required: true
+  test-script:
+    description: "The test script to run"
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -20,3 +23,7 @@ runs:
     - name: Verify installation
       shell: bash
       run: npm --version && node --version
+
+    - name: Run tests
+      shell: bash 
+      run: npm run ${{ inputs.test-script }}
