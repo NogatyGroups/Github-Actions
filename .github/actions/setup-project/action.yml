@@ -1,0 +1,22 @@
+name: 'Setup Nogaty Advanced Project'
+description: 'Configure l''environnement du projet Nogaty Advanced'
+inputs:
+  node-version:
+    description: "The version of Node.js to install"
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f #v6
+      with:
+        node-version: ${{inputs.node-version}}
+        cache: 'npm'
+
+    - name: Install dependencies
+      shell: bash
+      run: npm ci
+
+    - name: Verify installation
+      shell: bash
+      run: npm --version && node --version
