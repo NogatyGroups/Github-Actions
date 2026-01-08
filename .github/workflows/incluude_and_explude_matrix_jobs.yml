@@ -5,7 +5,7 @@ on:
 
 jobs:
     node-matrix:
-        continue-on-error: true
+        continue-on-error: false
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest,macos-latest]
@@ -14,9 +14,9 @@ jobs:
                     - os: ubuntu-latest
                       is-ubuntu: true
                       node-version: 24
-                    - os: windows-latest
-                      is-windows: true
-                      node-version: 23
+                    #- os: windows-latest
+                    #  is-windows: true
+                    #  node-version: 23
                     - experimental: false
                 excludes:
                     - os: macos-latest
