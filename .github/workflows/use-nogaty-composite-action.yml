@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  #v5
+        uses: actions/checkout@v5  #v5
 
       - name: Use Nogaty composite action
         uses: ./.github/actions/setup-project
         with:
           node-version: '24'
           test-script: 'test'
+        
