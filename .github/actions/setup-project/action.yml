@@ -16,15 +16,20 @@ runs:
         node-version: ${{inputs.node-version}}
         #cache: 'npm'
 
-
+    - name: Get working directory 
+      shell: bash 
+      run: ls -R
     - name: Install dependencies
       shell: bash
       run: npm install
+      working-directory: ./
 
     - name: Verify installation
       shell: bash
       run: npm --version && node --version
+      working-directory: ./
 
     - name: Run tests
       shell: bash 
       run: npm run ${{ inputs.test-script }}
+      working-directory: ./
