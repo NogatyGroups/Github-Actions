@@ -1,0 +1,24 @@
+name: Encrypt_and_decrypt_large_file
+run-name: "Encrypt and decrypt large file @${{github.actor}}, event:${{github.event_name}}"
+            #$gpg --symmetric --cipher-algo AES256 secrets.json
+            #$gpg --symmetric --cipher-algo AES256 --passphrase '123456' secrets.json
+            #$gpg --symmetric --cipher-algo AES256 --passphrase-file passphrase.txt secrets.json
+            #$gpg --decrypt --passphrase="123456" --output decrypted.json secrets.json.gpg
+
+on:
+    push:
+
+jobs:
+    Decrypt_large_file:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+            - name: Decrypt File
+              env:
+                PASSPHRASE: ${{ secrets.PASSPHRASE }}
+              run: |
+                mkdir -p $HOME/secrets
+                gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets/secrets.json secrets.json.gpg
+            - name: View Encrypted content file (NEVER DO THIS)
+              run: cat $HOME/secrets/secrets.json
+
