@@ -3,6 +3,8 @@ run-name: "Utilisation de needs dans jobs @${{github.actor}}"
 on: 
     push:
 
+permissions:
+  contents: read  # Juste lire le code, pas le modifier
 jobs:
   build:
     runs-on: ubuntu-24.04
