@@ -6,7 +6,7 @@ on:
     pull_request_target:
         types: [opened]
         branches:
-            - main
+            - features/feature01
     #issues:
     #    types: [opened]
 permissions:
