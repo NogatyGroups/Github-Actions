@@ -14,10 +14,14 @@ jobs:
                     - os: ubuntu-latest
                       is-ubuntu: true
                       node-version: 24
+                    - os: windows-latest
+                      is-windows: true
+                      node-version: 23
                     - experimental: false
                 excludes:
                     - os: macos-latest
                       is-macos: true
+                      node-version: 22
             # max-parallel: 4
             fail-fast: false
         runs-on: ${{matrix.os}}
