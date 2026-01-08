@@ -16,7 +16,7 @@ jobs:
             - name: Decrypt File
               env:
                 PASSPHRASE: ${{ secrets.PASSPHRASE }}
-              run:
+              run: |
                 mkdir -p $HOME/secrets
                 gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets/secrets.json secrets.json.gpg
             - name: View Encrypted content file (NEVER DO THIS)
