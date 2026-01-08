@@ -1,12 +1,9 @@
 name: Extends pull request permission
 run-name: ${{github.actor}}
 on: 
-    #pull_request:
-    #    types: [opened]
-    pull_request_target:
+    pull_request:
         types: [opened]
-        branches:
-            - features/feature01
+
     #issues:
     #    types: [opened]
 permissions:
