@@ -13,6 +13,8 @@ jobs:
                 includes:
                     - os: ubuntu-latest
                       is-ubuntu: true
+                      node-version: 24
+                    - experimental: true
                 excludes:
                     - os: macos-latest
                       is-macos: true
