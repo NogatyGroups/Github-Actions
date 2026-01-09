@@ -1,5 +1,5 @@
-name: Run single job or workflow at time using concurrency
-run-name: "Run single job or workflow at time using concurrency @${{github.actor}}, event: ${{github.event_name}}"
+name: Concurrency 1
+run-name: "Run single job or workflow at time using concurrency 1 @${{github.actor}}, event: ${{github.event_name}}"
 on:
     workflow_dispatch:
         inputs: 
@@ -7,6 +7,7 @@ on:
                 description: "Environment"
                 type: environment
                 required: true 
+   
 
 jobs:
     sleep-job:
