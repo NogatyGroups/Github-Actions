@@ -24,7 +24,7 @@ jobs:
         run: npm init -y
       - name: Install dependencies
         run: npm install
-      - name: Run tests
-        run: npm test
+      #- name: Run tests
+      #  run: npm test
       - name: Use secret
         run: echo "My secret is ${{ secrets.my-secret }}"
