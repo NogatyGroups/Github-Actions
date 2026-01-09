@@ -9,7 +9,6 @@ on:
           test-script:
             required: true 
             type: string
-            default: "Test npm"
         secrets:
           my-secret:
             required: true
