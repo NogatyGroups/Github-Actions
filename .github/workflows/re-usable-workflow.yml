@@ -29,8 +29,6 @@ jobs:
         run: npm install
       - name: Verify installation
         run: npm --version && node --version
-      - name: Run tests
-        run: npm test
       - name: Use secret
         run: echo "My secret is ${{ secrets.my-secret }}"
       - name: Run tests 
