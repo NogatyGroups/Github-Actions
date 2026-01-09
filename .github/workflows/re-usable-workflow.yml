@@ -6,10 +6,14 @@ on:
           node-version:
             required: true
             type: string
+          test-script:
+            required: true 
+            type: string
+            default: "Test npm"
         secrets:
           my-secret:
             required: true
-
+        
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,7 +28,11 @@ jobs:
         run: npm init -y
       - name: Install dependencies
         run: npm install
+      - name: Verify installation
+        run: npm --version && node --version
       - name: Run tests
         run: npm test
       - name: Use secret
         run: echo "My secret is ${{ secrets.my-secret }}"
+      - name: Run tests 
+        run: npm run ${{ inputs.test-script }}
