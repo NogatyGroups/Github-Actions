@@ -1,0 +1,35 @@
+name: 'Setup Nogaty Advanced Project'
+description: 'Configure lenvironnement du projet Nogaty Advanced'
+inputs:
+  node-version:
+    description: "The version of Node.js to install"
+    required: true
+  test-script:
+    description: "The test script to run"
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f #v6
+      with:
+        node-version: ${{inputs.node-version}}
+        #cache: 'npm'
+
+    - name: Get working directory 
+      shell: bash 
+      run: ls -R
+    - name: Install dependencies
+      shell: bash
+      run: npm install
+      working-directory: ./
+
+    - name: Verify installation
+      shell: bash
+      run: npm --version && node --version
+      working-directory: ./
+
+    - name: Run tests
+      shell: bash 
+      run: npm run ${{ inputs.test-script }}
+      working-directory: ./

@@ -1,0 +1,16 @@
+name: Concurrency 1
+run-name: "Run single job or workflow at time using concurrency 1 @${{github.actor}}, event: ${{github.event_name}}"
+on:
+    workflow_dispatch:
+        inputs: 
+            environment: 
+                description: "Environment"
+                type: environment
+                required: true 
+   
+
+jobs:
+    sleep-job:
+        runs-on: ubuntu-latest
+        steps:
+            - run: sleep 30
