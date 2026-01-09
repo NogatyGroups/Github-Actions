@@ -22,9 +22,15 @@ jobs:
           node-version: ${{ inputs.node-version }}
       - name: Affichage du repository
         run: |
+            echo "Current directory:"
+            pwd
+            echo "Listing files in current directory:"
             ls -la .
+            echo "Recursive listing of files:"
             ls -R .
-            ls -d
+            echo "Listing directories:"
+            ls -d */
+            ls -la ./
       - name: Install dependencies
         run: npm install
       - name: Run tests
