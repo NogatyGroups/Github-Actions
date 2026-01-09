@@ -7,7 +7,7 @@ jobs:
     uses: ./.github/workflows/re-usable-workflow.yml
     with:
       node-version: '22'
-      test-script: "Test npm"
+      test-script: "test"
     secrets:
       my-secret: ${{ secrets.TERRAFORM_TF_VARS }}
 
