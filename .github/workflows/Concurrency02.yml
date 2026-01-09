@@ -1,5 +1,5 @@
 name: Concurrency 2
-run-name: "Run single job or workflow at time using concurrency 2 @${{github.actor}}, event: ${{github.event_name}}"
+run-name: "Environment ${{inputs.environment}} concurrency 2 @${{github.actor}}, event: ${{github.event_name}}"
 on:
     workflow_dispatch:
         inputs: 
@@ -8,7 +8,9 @@ on:
                 type: environment
                 required: true 
    
-
+concurrency:
+    group: ${{inputs.environment}}
+    cancel-in-progress: true
 jobs:
     sleep-job:
         runs-on: ubuntu-latest
