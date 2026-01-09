@@ -1,0 +1,11 @@
+name: Main Workflow
+
+on: push
+
+jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/re-usable-workflow.yml
+    with:
+      node-version: '24'
+    secrets:
+      my-secret: ${{ secrets.TERRAFORM_TF_VARS }}
