@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Use github-script action 
         id: matrix-array
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         with:
           script: "return {'os': context.payload.inputs['os'].split(','),'node-version': context.payload.inputs['node-version'].split(',')}"
 
