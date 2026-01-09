@@ -22,7 +22,8 @@ jobs:
           node-version: ${{ inputs.node-version }}
       - name: Affichage du repository
         run: |
-            ls -la
+            ls -la .
+            ls -R .
             ls -d
       - name: Install dependencies
         run: npm install
