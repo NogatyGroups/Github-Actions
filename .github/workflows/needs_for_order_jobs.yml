@@ -25,7 +25,7 @@ jobs:
         # Get SHA: curl -s https://api.github.com/repos/actions/checkout/commits/v4 | jq -r .sha
         # Get SHA: curl -s https://api.github.com/repos/actions/setup-python/commits/v6 | jq -r .sha
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd #v5
-      - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 #v6
+      - uses: actions/setup-python@4f41a90a1f38628c7ccc608d05fbafe701bc20ae #v6
         with:
           python-version: '3.13' 
 
