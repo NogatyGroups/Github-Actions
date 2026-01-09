@@ -29,8 +29,7 @@ jobs:
             echo "Recursive listing of files:"
             ls -R .
             echo "Listing directories:"
-            ls -d */
-            ls -la ./
+            ls -lar ./*
       - name: Install dependencies
         run: npm install
       - name: Run tests
