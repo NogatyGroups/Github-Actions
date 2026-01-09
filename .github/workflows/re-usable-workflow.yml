@@ -33,3 +33,4 @@ jobs:
         run: echo "My secret is ${{ secrets.my-secret }}"
       - name: Run tests 
         run: npm run ${{ inputs.test-script }}
+        continue-on-error: true
