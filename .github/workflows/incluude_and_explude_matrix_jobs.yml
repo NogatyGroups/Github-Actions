@@ -32,5 +32,5 @@ jobs:
             node-version: ${{ matrix.node-version}}
          - run: node -v 
          - name: test error handling
-           run: dhdhhdhd
+           run: npm test
 
