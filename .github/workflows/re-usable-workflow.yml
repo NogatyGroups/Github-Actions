@@ -20,6 +20,10 @@ jobs:
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f #v6
         with:
           node-version: ${{ inputs.node-version }}
+      - name: Affichage du repository
+        run: |
+            ls -la
+            ls -d
       - name: Install dependencies
         run: npm install
       - name: Run tests
