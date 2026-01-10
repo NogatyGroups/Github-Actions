@@ -1,0 +1,36 @@
+name: Reusable Workflow
+run-name: "Reusable workflow @${{github.actor}}"
+on: 
+    workflow_call:
+        inputs:
+          node-version:
+            required: true
+            type: string
+          test-script:
+            required: true 
+            type: string
+        secrets:
+          my-secret:
+            required: true
+        
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd #v5
+      - name: Set up Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f #v6
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Generate package.json
+        run: npm init -y
+      - name: Install dependencies
+        run: npm install
+      - name: Verify installation
+        run: npm --version && node --version
+      - name: Use secret
+        run: echo "My secret is ${{ secrets.my-secret }}"
+      - name: Run tests 
+        run: npm run ${{ inputs.test-script }}
+        continue-on-error: true

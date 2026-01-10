@@ -1,0 +1,22 @@
+name: Test node-js
+on:
+    workflow_dispatch:
+        inputs:
+            test_suites:
+                description: Juste for test
+                type: choice
+                default: functional
+                options:
+                    - functional
+                    - regression
+
+jobs:
+    test-nodejs:
+        runs-on: ubuntu-latest
+        steps:
+         - run: node -v 
+         - uses: actions/setup-node@v3 
+           with:
+            node-version: "24"
+         - run: node -v 
+    
