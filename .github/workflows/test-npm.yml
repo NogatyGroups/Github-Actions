@@ -5,7 +5,7 @@ on:
             test_suites:
                 description: Juste for test
                 type: choice
-                default: functional
+                #default: functional
                 options:
                     - functional
                     - regression
