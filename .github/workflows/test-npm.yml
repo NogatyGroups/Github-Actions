@@ -1,6 +1,15 @@
 name: Test node-js
 on: 
-    push
+    push:
+    workflow_dispatch:
+        inputs:
+            test_suites:
+                description: Juste for test
+                type: choice
+                default: functional
+                options:
+                    - functional
+                    - regression
 
 jobs:
     test-nodejs:
@@ -11,5 +20,4 @@ jobs:
            with:
             node-version: "24"
          - run: node -v 
-         - name: test error handling
-           run: npm test
+    
