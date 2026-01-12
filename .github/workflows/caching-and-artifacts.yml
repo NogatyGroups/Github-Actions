@@ -11,6 +11,7 @@ jobs:
             - uses: actions/checkout@v5
             - name: Install npm dependencies
               run: npm install 
+              working-directory: ./web-project
             - name: Use Axios
               uses: actions/github-script@v6
               with:
@@ -19,5 +20,6 @@ jobs:
                     const res = await axios('https://icanhazdadjoke.com/',{ headers: {
                         Accept: 'text/plain'}})
                     console.log(res.data)
+                 
 
         
