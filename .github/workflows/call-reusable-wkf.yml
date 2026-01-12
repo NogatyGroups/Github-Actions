@@ -11,9 +11,13 @@ on:
 
 jobs:
     calling-a-reusable-wk:
-        uses: nogatygroups/github-actions/.github/workflows/reusable-wkf.yml@75237a9b9c497a03251130abfaa9403e72dd88a0
+        uses: nogatygroups/github-actions/.github/workflows/reusable-wkf.yml@4a6a5ef16ff13e4594158d675781b03e56306348
         with:
             name: ${{inputs.name}}
         secrets:
             access_token: ${{secrets.NOGATY_SECRET}}
-
+    using-reusable-wf-output:
+        runs-on: ubuntu-latest
+        needs: calling-a-reusable-wk
+        steps:
+            - run: echo ${{needs.calling-a-reusable-wk.outputs.date}}
