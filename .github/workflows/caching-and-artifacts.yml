@@ -17,6 +17,7 @@ jobs:
                 key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/web-project/package-lock.json') }}
                 restore-keys: |
                   ${{ runner.os }}-npm-cache-
+                  ${{ runner.os }}-
 
             - name: Display cache output
               run: |
