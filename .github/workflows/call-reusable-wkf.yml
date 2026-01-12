@@ -1,0 +1,19 @@
+name: Calling Reusable Workflows
+run-name: "Calling Reusable Workflows @${{github.actor}}"
+on: 
+    workflow_dispatch:
+        inputs:
+            name:
+                description: "Give your name"
+                type: string
+                default: "Pierre"
+                required: true 
+
+jobs:
+    calling-a-reusable-wk:
+        uses: nogatygroups/github-actions/.github/workflows/reusable-wkf.yml@75237a9b9c497a03251130abfaa9403e72dd88a0
+        with:
+            name: ${{inputs.name}}
+        secrets:
+            access_token: ${{secrets.TERRAFORM_TF_VARS}}
+
