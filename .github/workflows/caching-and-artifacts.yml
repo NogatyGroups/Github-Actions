@@ -22,7 +22,7 @@ jobs:
               uses: actions/github-script@v6
               with:
                 script: |
-                  const path = resuire('path');
+                  const path = require('path');
                   const targetDir = path.join(process.env.GITHUB_WORKSPACE,'web-project');
                   process.chdir(targetDir);
                   console.log('Repertoir actuel:', process.cwd());
