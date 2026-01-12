@@ -47,4 +47,4 @@ jobs:
             - id: date-step
               run: echo "date=$(date)" >> $GITHUB_OUTPUT
             - id: log-outputs
-              run: echo "${{ needs.log-context-and-inputs.outputs }}" >> $GITHUB_OUTPUT #echo ${{ needs.log-context-and-inputs.result }} >> $GITHUB_OUTPUT
+              run: echo "${{ toJson(needs.log-context-and-inputs.outputs) }}" >> $GITHUB_OUTPUT
