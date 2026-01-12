@@ -12,6 +12,15 @@ on:
             access_token:
                 description: "Access token"
                 required: true
+        outputs:
+            date:
+                description: "Date value"
+                value: ${{jobs.generate-output.outputs.date}}
+            log-out:
+                description: "Log outputs"
+                value: ${{jobs.generate-output.outputs.log-out}}
+    
+
 jobs:
     checkout:
         runs-on: ubuntu-latest
@@ -28,4 +37,16 @@ jobs:
               run: echo ${{inputs.name}}
             - name: Display access token secrets
               run: echo ${{ secrets.access_token }}
-              
+    generate-output:
+        runs-on: ubuntu-latest
+        outputs: 
+            date: ${{steps.date-step.outputs.date}}
+            log-out: ${{steps.log-outputs.outputs}}
+        needs: [log-context-and-inputs]
+        steps: 
+            - id: date-step
+              run: echo "date=$(date)" >> $GITHUB_OUTPUT
+            - id: log-outputs
+              run: |
+                echo "${{ needs.log-context-and-inputs.outputs }}" >> $GITHUB_OUTPUT
+                echo ${{ needs.log-context-and-inputs.result }} >> $GITHUB_OUTPUT
