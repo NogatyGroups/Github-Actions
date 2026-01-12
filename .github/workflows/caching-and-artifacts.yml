@@ -13,7 +13,7 @@ jobs:
               id: cache-dependencies
               uses: actions/cache@v5
               with:
-                path: ~/.web-project/npm
+                path: ./web-project/npm
                 key: "npm-cache"
             - name: Display cache output
               run: |
