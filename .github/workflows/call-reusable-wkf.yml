@@ -11,7 +11,7 @@ on:
 
 jobs:
     calling-a-reusable-wk:
-        uses: nogatygroups/github-actions/.github/workflows/reusable-wkf.yml@87bb2f0f6a002be0b53a9da328b3b810b1737e42
+        uses: nogatygroups/github-actions/.github/workflows/reusable-wkf.yml@8bf83b6c43e9bf3cbcc7e2e291dcc7261e001a65
         with:
             name: ${{inputs.name}}
         secrets:
