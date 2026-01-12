@@ -21,3 +21,9 @@ jobs:
         needs: calling-a-reusable-wk
         steps:
             - run: echo ${{needs.calling-a-reusable-wk.outputs.date}}
+
+    calling-a-reusable-wk-in-same-repo:
+        uses: nogatygroups/github-actions/.github/workflows/reusable-wkf.yml@f272968c3744dfba00fa8e98163060f92ae24906
+        with:
+            name: ${{inputs.name}}
+        secrets: inherit
