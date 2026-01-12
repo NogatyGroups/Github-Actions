@@ -15,5 +15,5 @@ jobs:
         with:
             name: ${{inputs.name}}
         secrets:
-            access_token: ${{secrets.TERRAFORM_TF_VARS}}
+            access_token: ${{secrets.S3_TFVARS}}
 
