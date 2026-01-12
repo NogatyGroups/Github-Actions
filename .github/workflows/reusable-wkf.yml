@@ -12,6 +12,13 @@ on:
             access_token:
                 description: "Access token"
                 required: true
+        outputs:
+            date:
+                description: "Date value"
+                value: ${{jobs.generate-output.outputs.date}}
+            log-out:
+                description: "Log outputs"
+                value: ${{jobs.generate-output.outputs.log-out}}
     
 
 jobs:
