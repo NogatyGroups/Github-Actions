@@ -1,0 +1,32 @@
+name: Using docker custom entrypoint
+run-name: "Using docker custom entrypoint @${{github.actor}}, event: ${{github.event_name}}"
+on: 
+    push:
+jobs:
+    custom-entrypoint:
+        runs-on: ubuntu-latest
+        container:
+            image: node:25-alpine3.22
+            #image: ghrc.io/owner/image  ## For github registry
+            #credentials:
+            #    username: "nogaty"
+            #    password: "faux-pass"
+            env:
+                API_URL: some-url.com
+            ports:
+                - 8087
+            #volumes:
+            #    - volume_name: /path/in/container
+            #    - /path/to/container
+            #    - /path/in/host:/path/in/container
+
+            options: --cpus 1
+
+        steps:
+            - name: Pull repos
+              uses: actions/checkout@v6
+            - name: run custom entrypoint
+              uses: docker://node:25-alpine3.22
+              with:
+                entrypoint: ./script.sh
+                args: "Custom entrypoint"
