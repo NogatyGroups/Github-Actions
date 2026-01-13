@@ -25,6 +25,8 @@ jobs:
         steps:
             - name: Pull repos
               uses: actions/checkout@v6
+            - name: Test si script existe
+              run: ls -la 
             - name: run custom entrypoint
               uses: docker://node:25-alpine3.22
               with:
