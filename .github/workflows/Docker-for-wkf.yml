@@ -14,7 +14,7 @@ jobs:
             env:
                 API_URL: some-url.com
             ports:
-                - 80
+                - 8087
             #volumes:
             #    - volume_name: /path/in/container
             #    - /path/to/container
