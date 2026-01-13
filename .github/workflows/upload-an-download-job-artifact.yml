@@ -30,6 +30,7 @@ jobs:
               working-directory: ./web-project  
             - name: Run Test
               run: npm test
+              working-directory: ./web-project
             - name: Upload Code Coverage Report
               uses: actions/upload-artifact@v5
               if: always()
