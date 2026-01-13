@@ -25,8 +25,13 @@ jobs:
         steps:
             - name: Pull repos
               uses: actions/checkout@v6
-            - name: Test si script existe
-              run: ls -la 
+            - name: Send a slack message
+              uses: docker://technosophos/slack-notify
+              env:
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+                SLACK_TITLE: From Github Actions running 
+                SLACK_MESSAGE: "Actor: by @${{github.actor}}, Event: ${{github.event_name}}"
+                SLACK_COLOR: "#723fc4"
             - name: Change permission
               run: |
                 chmod +x ./script.sh
