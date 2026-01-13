@@ -47,7 +47,7 @@ jobs:
               run: ls -la *
               working-directory: ./web-project
             - name: Display coverage-report file content
-              run: ls -la code-coverage-report/*
+              run: ls -la code-coverage-report
               working-directory: ./web-project
 
             - name: Use Axios
