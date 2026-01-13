@@ -1,0 +1,33 @@
+name: Running job in dockers
+run-name: "Running job in dockers @${{github.actor}}, event: ${{github.event_name}}"
+on: 
+    workflow_dispatch:
+jobs:
+    running-job-in-docker:
+        runs-on: ubuntu-latest
+        container:
+            image: node:25-alpine3.22
+            #image: ghrc.io/owner/image  ## For github registry
+            #credentials:
+            #    username: "nogaty"
+            #    password: "faux-pass"
+            env:
+                API_URL: some-url.com
+            ports:
+                - 80
+            #volumes:
+            #    - volume_name: /path/in/container
+            #    - /path/to/container
+            #    - /path/in/host:/path/in/container
+
+            options: --cpus 1
+
+
+        steps:
+            - name: Log Node & OS Version
+              run: |
+                node -v 
+                cat /etc/os-release
+            - name: Log Env
+              run: |
+                echo $API_URL
