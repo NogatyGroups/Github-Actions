@@ -1,0 +1,43 @@
+name: Using docker container in steps
+run-name: "Using docker container in steps @${{github.actor}}, event: ${{github.event_name}}"
+on: 
+    workflow_dispatch:
+jobs:
+    running-job-in-docker:
+        runs-on: ubuntu-latest
+        container:
+            image: node:25-alpine3.22
+            #image: ghrc.io/owner/image  ## For github registry
+            #credentials:
+            #    username: "nogaty"
+            #    password: "faux-pass"
+            env:
+                API_URL: some-url.com
+            ports:
+                - 8087
+            #volumes:
+            #    - volume_name: /path/in/container
+            #    - /path/to/container
+            #    - /path/in/host:/path/in/container
+
+            options: --cpus 1
+
+        steps:
+            - name: Log Node & OS Version
+              run: |
+                node -v 
+                cat /etc/os-release
+            - name: Log Env
+              run: |
+                echo $API_URL
+            - name: Container in steps
+              uses: docker://node:25-alpine3.22
+              #uses: docker://ghcr.io/node:25-alpine3.22 # for github
+              with:
+                entrypoint: /usr/local/bin/node
+                args: -p 20+30
+            - name: Logs node version in steps
+              uses: docker://node:25-alpine3.22
+              #uses: docker://ghcr.io/node:25-alpine3.22 # for github
+              with:
+                args: -v
