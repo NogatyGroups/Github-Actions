@@ -44,10 +44,13 @@ jobs:
                 name: code-coverage
                 path: code-coverage-report
             - name: Display coverage file content
-              run: ls -la ./web-project
+              run: ls -la *
+              working-directory: ./web-project
             - name: Display coverage-report file content
-              run: ls -la ./web-project/code-coverage-report
-              
+              run: ls -la code-coverage-report/*
+              working-directory: ./web-project
+
+
             - name: Use Axios
               uses: actions/github-script@v6
               with:
