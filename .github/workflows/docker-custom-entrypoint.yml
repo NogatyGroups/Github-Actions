@@ -30,8 +30,8 @@ jobs:
               env:
                 SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
                 SLACK_TITLE: From Github Actions running 
-                SLACK_MESSAGE: "Actor: by @${{github.actor}}, Event: ${{github.event_name}}"
-                SLACK_COLOR: "#723fc4"
+                SLACK_MESSAGE: "Fail pipeline ${{github.action_status}} ${{github.job_workflow_sha}}  Actor: by @${{github.actor}}, Event: ${{github.event_name}}"
+                SLACK_COLOR: "#c43f4e"
             - name: Change permission
               run: |
                 chmod +x ./script.sh
