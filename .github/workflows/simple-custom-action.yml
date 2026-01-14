@@ -5,7 +5,7 @@ jobs:
     simple-action:
         runs-on: ubuntu-latest
         steps: 
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v5
             - name: Simple JS Action
               id: greet 
               uses: ./.github/action/setup-project
