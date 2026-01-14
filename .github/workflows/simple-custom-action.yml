@@ -1,0 +1,17 @@
+name: Simple Custom Action
+on: push
+
+jobs:
+    simple-action:
+        runs-on: ubuntu-latest
+        steps: 
+            - uses: actions/checkout@v6
+            - name: Simple JS Action
+              id: greet 
+              uses: ./.github/action/setup-project
+              with:
+                who_to_greet: Houlouwolo
+            - name: Log greeting Time
+              run: echo "${{steps.greet.outputs.Time}}"
+            - name: Log ENV Var
+              run: echo $HELLO_TIME
