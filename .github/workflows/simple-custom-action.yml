@@ -8,7 +8,7 @@ jobs:
             - uses: actions/checkout@v5
             - name: Simple JS Action
               id: greet 
-              uses: ./.github/action/setup-project
+              uses: ./.github/actions/setup-project
               with:
                 who_to_greet: Houlouwolo
             - name: Log greeting Time
