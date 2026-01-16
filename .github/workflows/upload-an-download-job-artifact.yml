@@ -39,7 +39,7 @@ jobs:
                 path: ./web-project/coverage
                 retention-days: 1
             - name: Download Code Coverage
-              uses: actions/download-artifact@v5
+              uses: actions/download-artifact@v7
               with:
                 name: code-coverage
                 path: ./web-project/code-coverage-report
