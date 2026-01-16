@@ -15,7 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
          - run: node -v 
-         - uses: actions/setup-node@v3 
+         - uses: actions/setup-node@v6 
            with:
             node-version: "24"
          - run: node -v 
