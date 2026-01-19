@@ -51,7 +51,7 @@ jobs:
               working-directory: ./web-project
 
             - name: Use Axios
-              uses: actions/github-script@v6
+              uses: actions/github-script@v8
               with:
                 script: |
                   const path = require('path');
